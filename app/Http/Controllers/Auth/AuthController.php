@@ -17,7 +17,8 @@ class AuthController extends Controller
 
     public function register(){
        
-        return view('dashboard.Usuario');
+        $users = User::all();
+        return view('dashboard.Usuario',compact('users'));
     
     }
 
@@ -58,6 +59,11 @@ class AuthController extends Controller
     public function signOut(){
         Auth::logout();
         return redirect()->route('login')->with('success',"session cerrada correctamente");
+    }
+
+    public function destroy(User $user){
+        $user->delete();
+        return redirect()-back()->with('success','Usuario eliminado Correctamente');
     }
 
 

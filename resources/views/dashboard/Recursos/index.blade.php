@@ -46,7 +46,7 @@
                   Inventario
                 </a>
                 <ul class="dropdown-menu dropdown-menu-dark">
-                  <li><a class="dropdown-item" href="#">Proveedores</a></li>
+                  <li><a class="dropdown-item" href="{{route('proveedor.index')}}">Proveedores</a></li>
                   <li><a class="dropdown-item" href="#">Productos</a></li>
                   <li><a class="dropdown-item" href="#">Categorias</a></li>
                   <li><a class="dropdown-item" href="#">Compras</a></li>

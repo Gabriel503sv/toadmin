@@ -40,13 +40,13 @@ Route::middleware('auth')->group(function(){
         //Route::post('usuario',[AuthController::class,'registerVerfy']);
         
         //dashboar
+        Route::post('usuario/{id}/destroy',[AuthController::class,'destroy'])->name('destroy');
         Route::get('dashboard',function(){
             return view('dashboard.dashboard');
         })->name('dashboard');
 
         //Proveedor
-        Route::get('Proveedor',[ControllerProveedor::class,'index'])->name('proveedor');
-        
+        Route::resource('proveedor',ControllerProveedor::class);
 
     });
     

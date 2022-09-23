@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Proveedor\storeRequest;
 use App\Models\Proveedor;
+use Illuminate\Console\View\Components\Task;
 use Illuminate\Http\Request;
 
 class ControllerProveedor extends Controller
@@ -14,7 +16,8 @@ class ControllerProveedor extends Controller
      */
     public function index()
     {
-        return view('dashboard.proveedor');
+        $proveedores = Proveedor::all();
+        return view('dashboard.proveedor',compact('proveedores'));
     }
 
     /**
@@ -35,7 +38,19 @@ class ControllerProveedor extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+                'nombre_proveedor'=>'required|min:5|max:100',
+                'direccion_proveedor' => 'required|min:10|max:255',
+            ]);
+
+        Proveedor::create([
+            'nombre_proveedor' => $request->nombre_proveedor,
+            'direccion_proveedor' => $request->direccion_proveedor,
+        ]);
+
+        return redirect()->back()->with('success','Proveedor agregado Correctamente');
+        
+      
     }
 
     /**
@@ -46,7 +61,7 @@ class ControllerProveedor extends Controller
      */
     public function show(Proveedor $proveedor)
     {
-        //
+        
     }
 
     /**
@@ -80,6 +95,7 @@ class ControllerProveedor extends Controller
      */
     public function destroy(Proveedor $proveedor)
     {
-        //
+        $proveedor->delete();
+        return redirect()-back()->with('success','Proveedor eliminado Correctamente');
     }
 }

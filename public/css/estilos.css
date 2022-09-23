@@ -1,0 +1,49 @@
+
+/* VARIABLES */
+
+:root{
+    --white: #FFFFFF;
+    --black: #000000;
+    --dark: #232830;
+    --very-light-pink: #C7C7C7;
+    --text-input-field: #F7F7F7;
+    --hospital-green: #ACD9B2;
+    --sm: 1.4rem;
+    --md: 1.6rem;
+    --lg: 1.8rem;
+
+    /* color-scheme: light dark; */
+}
+
+body{
+    font-family: 'Reem Kufi Fun', sans-serif;
+    margin: 0;
+}
+
+.color1 {color: #0e5258;}
+.color2 {color: #0e6d60;}
+.color3 {color: #08976a;}
+.color4 {color: #63ce6e;}
+.color5 {color: #d8ff7f;}
+
+.bg-verde{background-color: #0e5258;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

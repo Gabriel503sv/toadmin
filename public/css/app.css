@@ -1,0 +1,17 @@
+body{
+    background-color:#ffffff;
+}
+
+.container{
+    height: 100vh;
+}
+
+.w-form{
+    width: 40%;
+}
+
+.color1 {color: #0e5258;}
+.color2 {color: #0e6d60;}
+.color3 {color: #08976a;}
+.color4 {color: #63ce6e;}
+.color5 {color: #d8ff7f;}

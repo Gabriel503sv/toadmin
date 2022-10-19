@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Proveedor\storeRequest;
 use App\Models\Proveedor;
+use App\Models\User;
 use Illuminate\Console\View\Components\Task;
 use Illuminate\Http\Request;
 
@@ -96,6 +97,7 @@ class ControllerProveedor extends Controller
     public function destroy(Proveedor $proveedor)
     {
         $proveedor->delete();
-        return redirect()-back()->with('success','Proveedor eliminado Correctamente');
+        return redirect()->back()->with('success','Proveedor eliminado Correctamente');
     }
+
 }

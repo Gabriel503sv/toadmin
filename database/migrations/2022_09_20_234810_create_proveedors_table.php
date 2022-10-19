@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id('id_proveedor');
             $table->string('nombre_proveedor');
             $table->string('direccion_proveedor');
+            $table->string('telefono_proveedor');
+            $table->string('Mail_proveedor');
             $table->timestamps();
         });
     }

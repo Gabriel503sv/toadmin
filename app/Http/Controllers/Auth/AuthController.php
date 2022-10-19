@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class AuthController extends Controller
 {
@@ -56,8 +57,12 @@ class AuthController extends Controller
         return back()->withErrors(['invalid_credentials'=>'Usuario y contraseña invalida'])->withInput();
     }
 
-    public function signOut(){
+    public function signOut(Request $request,Redirect $redirect){
         Auth::logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
         return redirect()->route('login')->with('success',"session cerrada correctamente");
     }
 

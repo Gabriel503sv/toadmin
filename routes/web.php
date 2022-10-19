@@ -26,8 +26,7 @@ Route::prefix('admin')->group(function(){
     Route::post('login',[AuthController::class,'loginVerify'])->name('login.verify');
     //cerrar session
     Route::post('signOut',[AuthController::class,'signOut'])->name('signOut');  
-    Route::get('usuario',[AuthController::class,'register'])->name('usuario');
-    Route::post('usuario',[AuthController::class,'registerVerify']);
+   
     
 });
 
@@ -39,11 +38,14 @@ Route::middleware('auth')->group(function(){
         //Route::get('usuario',[AuthController::class,'register'])->name('usuario');
         //Route::post('usuario',[AuthController::class,'registerVerfy']);
         
-        //dashboar
+        //dashboar 
+        Route::get('usuario',[AuthController::class,'register'])->name('usuario');
+        Route::post('usuario',[AuthController::class,'registerVerify']);
         Route::post('usuario/{id}/destroy',[AuthController::class,'destroy'])->name('destroy');
         Route::get('dashboard',function(){
             return view('dashboard.dashboard');
         })->name('dashboard');
+
 
         //Proveedor
         Route::resource('proveedor',ControllerProveedor::class);

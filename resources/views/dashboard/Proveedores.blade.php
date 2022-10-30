@@ -2,7 +2,6 @@
 
 @section('content')
     <!-- Button trigger modal -->
-
     @if (session()->has('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <small>
@@ -11,7 +10,6 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
-
     <!-- Modal -->
     <hr>
     <div class="accordion" id="accordionExample">
@@ -32,8 +30,7 @@
                                 <div class="mb-3 text-dark">
                                     <h3>CREAR PROVEEDOR</h3>
                                 </div>
-                                <img src="https://cdn-icons-png.flaticon.com/512/4003/4003697.png"
-                                    alt="">
+                                <img src="https://cdn-icons-png.flaticon.com/512/4003/4003697.png" alt="">
                             </div>
                             <div
                                 class="bg-dark text-white  col-lg-7 d-flex flex-column align-items-end border border-2 border-dark p-4">
@@ -122,7 +119,7 @@
                                         <td>
                                             <div class="row gx-3">
                                                 <div class="col">
-                                                    <button  href="#" style="width: 100%"
+                                                    <button href="#" style="width: 100%"
                                                         class="btn btn-success  mb-3">Editar</button>
                                                 </div>
                                                 <div class="col">

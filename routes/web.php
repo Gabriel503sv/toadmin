@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\ComprasController;
-use App\Http\Controllers\ControllerCategoria;
 use App\Http\Controllers\ControllerCategory;
 use App\Http\Controllers\ControllerProveedor;
 use App\Http\Controllers\DashboardController;
@@ -32,7 +31,7 @@ Route::get('/', function () {
     Route::post('login',[AuthController::class,'loginVerify'])->name('login.verify');
     //cerrar session
     Route::post('signOut',[AuthController::class,'signOut'])->name('signOut');  
-     Route::resource('user',UsuarioController::class);
+    
     
 //});
 
@@ -42,7 +41,7 @@ Route::middleware('auth')->group(function(){
    // Route::prefix('admin')->group(function(){
         
         //usuario
-       
+        Route::resource('user',UsuarioController::class);
         //Proveedor
         Route::resource('proveedor',ControllerProveedor::class);
         //Categorias

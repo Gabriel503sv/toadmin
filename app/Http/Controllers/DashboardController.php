@@ -11,11 +11,13 @@ use App\Models\User;
 class DashboardController extends Controller
 {
     //
-    public function index()
-    {
+    public function index(){
         //
-        
-        return view('dashboard.Dashboard');
+        $categories = Category::all();
+        $users = User::all()->count();
+        $proveedores = Proveedor::all()->count();
+        $productos = Producto::all()->count();
+        return view('dashboard.Categoria', compact('categories'));
     }
 
 }

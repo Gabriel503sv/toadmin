@@ -37,7 +37,16 @@
                                 class="bg-dark text-white  col-lg-7 d-flex flex-column align-items-end border border-2 border-dark p-4">
                                 <form action="" method="POST" class="m-auto  w-form">
                                     @csrf
-
+                                    <div class="mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">Nombre</label>
+                                        <input name="name" type="text" class="form-control" id="exampleInputEmail1"
+                                            aria-describedby="emailHelp" required min="30">
+                                        @error('name')
+                                            <small class="text-danger mt-1">
+                                                <strong>{{ $message }}</strong>
+                                            </small>
+                                        @enderror
+                                    </div>
                                     <div class="mb-3">
                                         <label for="exampleInputEmail1" class="form-label">Correo Electronico</label>
                                         <input name="email" type="email" class="form-control" id="exampleInputEmail1"
@@ -90,11 +99,12 @@
                         <h3 class="card-title">Listado de Usuarios</h3>
                     </div>
                     <!-- /.card-header -->
-                    <div class="card-body">
-                        <table id="Usuario" class="table table-bordered table-striped">
-                            <thead>
+                    <div class="card-body table-responsive">
+                        <table id="Usuario" class="table table-bordered table-striped p-3">
+                            <thead class="table-dark">
                                 <tr>
                                     <th scope="col">#</th>
+                                    <th scope="col">Nombre</th>
                                     <th scope="col">Correo</th>
                                     <th scope="col">Acciones</th>
                                 </tr>
@@ -103,15 +113,17 @@
                                 @foreach ($users as $key => $user)
                                     <tr>
                                         <th scope="row">{{ $key + 1 }}</th>
+                                        
+                                        <td>{{ $user->name}}</td>
                                         <td>{{ $user->email }}</td>
                                         <td>
                                             <div class="row gx-3">
                                                 <div class="col">
-                                                    <button disabled href="#" style="width: 100%"
-                                                        class="btn btn-secondary  mb-3">Editar</button>
+                                                    <button href="#" style="width: 100%"
+                                                        class="btn btn-success  mb-3">Editar</button>
                                                 </div>
                                                 <div class="col">
-                                                    <form method="POST" action="{{ route('destroy', $user->id) }}">
+                                                    <form method="POST" action="{{ route('user.destroy', $user->id) }}">
                                                         @method('DELETE')
                                                         @csrf
                                                         <button class="btn btn-danger" style="width: 100%">Eliminar</button>

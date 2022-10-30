@@ -1,7 +1,13 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\ComprasController;
+use App\Http\Controllers\ControllerCategoria;
+use App\Http\Controllers\ControllerCategory;
 use App\Http\Controllers\ControllerProveedor;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\UsuarioController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,37 +26,35 @@ Route::get('/', function () {
 });
 
 
-Route::prefix('admin')->group(function(){
+//Route::prefix('admin')->group(function(){
     //login
     Route::get('login',[AuthController::class,'login'])->name('login');
     Route::post('login',[AuthController::class,'loginVerify'])->name('login.verify');
     //cerrar session
     Route::post('signOut',[AuthController::class,'signOut'])->name('signOut');  
-   
+     Route::resource('user',UsuarioController::class);
     
-});
+//});
 
 //protegidas
 
 Route::middleware('auth')->group(function(){
-    Route::prefix('admin')->group(function(){
-        //Usuario
-        //Route::get('usuario',[AuthController::class,'register'])->name('usuario');
-        //Route::post('usuario',[AuthController::class,'registerVerfy']);
+   // Route::prefix('admin')->group(function(){
         
-        //dashboar 
-        Route::get('usuario',[AuthController::class,'register'])->name('usuario');
-        Route::post('usuario',[AuthController::class,'registerVerify']);
-        Route::post('usuario/{id}/destroy',[AuthController::class,'destroy'])->name('destroy');
-        Route::get('dashboard',function(){
-            return view('dashboard.dashboard');
-        })->name('dashboard');
-
-
+        //usuario
+       
         //Proveedor
         Route::resource('proveedor',ControllerProveedor::class);
-
-    });
+        //Categorias
+        Route::resource('category',ControllerCategory::class);
+        //Compra
+        Route::resource('compra',ComprasController::class);
+        //Producto
+        Route::resource('producto',ProductoController::class);
+        
+        Route::get('dashboard',[DashboardController::class,'index'])->name('index');
+        
+    //});
     
 });
 

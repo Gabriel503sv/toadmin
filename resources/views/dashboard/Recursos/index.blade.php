@@ -18,25 +18,25 @@
 <body>
     <div class="sidebar p-0">
         <div class="logo-details">
-            <i class='bx bxl-c-plus-plus icon'></i>
+            <i class='bx bxl-ok-ru'></i>
             <div class="logo_name">ADMIN</div>
             <i class='bx bx-menu' id="btn"></i>
         </div>
         <ul class="nav-list">
             <li>
                 <i class='bx bx-search'></i>
-                <input type="text" placeholder="Search...">
-                <span class="tooltip">Search</span>
+                <input type="text" placeholder="Buscar...">
+                <span class="tooltip">Buscar</span>
             </li>
             <li>
-                <a href="#">
+                <a href="{{route('index')}}">
                     <i class='bx bx-grid-alt'></i>
                     <span class="links_name">Dashboard</span>
                 </a>
                 <span class="tooltip">Dashboard</span>
             </li>
             <li>
-                <a href="{{route('usuario')}}">
+                <a href="{{route('user.index')}}">
                     <i class='bx bx-user'></i>
                     <span class="links_name">Usuario</span>
                 </a>
@@ -44,35 +44,35 @@
             </li>
             <li>
                 <a href="{{route('proveedor.index')}}">
-                    <i class='bx bx-chat'></i>
+                    <i class='bx bx-group'></i>
                     <span class="links_name">Proveedor</span>
                 </a>
                 <span class="tooltip">Proveedor</span>
             </li>
             <li>
-                <a href="#">
-                    <i class='bx bx-pie-chart-alt-2'></i>
+                <a href="{{route('producto.index')}}">
+                    <i class='bx bx-store'></i>
                     <span class="links_name">Productos</span>
                 </a>
                 <span class="tooltip">Productos</span>
             </li>
             <li>
                 <a href="#">
-                    <i class='bx bx-folder'></i>
+                    <i class='bx bxl-shopify' ></i>
                     <span class="links_name">Compras</span>
                 </a>
                 <span class="tooltip">Compras</span>
             </li> 
             <li>
                 <a href="#">
-                    <i class='bx bx-cart-alt'></i>
+                    <i class='bx bxs-shopping-bags' ></i>
                     <span class="links_name">Ventas</span>
                 </a>
                 <span class="tooltip">Ventas</span>
             </li>
             <li>
-                <a href="#">
-                    <i class='bx bx-heart'></i>
+                <a href="{{route('category.index')}}">
+                    <i class='bx bx-category'></i>
                     <span class="links_name">Categoria</span>
                 </a>
                 <span class="tooltip">Categoria</span>

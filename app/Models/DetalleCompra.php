@@ -5,14 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Proveedor extends Model
+class DetalleCompra extends Model
 {
     use HasFactory;
-
     protected $fillable = [
-        'nombre_proveedor',
-        'direccion_proveedor',
-        'telefono_proveedor',
-        'mail_proveedor',
+        'n_compra',
+        'producto',
+        'unidades_pedidas',
+        'precio_unitario'
     ];
 }

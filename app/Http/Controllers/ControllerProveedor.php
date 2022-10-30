@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\Proveedor\storeRequest;
 use App\Models\Proveedor;
-use Illuminate\Console\View\Components\Task;
 use Illuminate\Http\Request;
 
 class ControllerProveedor extends Controller

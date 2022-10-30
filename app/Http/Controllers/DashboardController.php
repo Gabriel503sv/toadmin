@@ -13,11 +13,11 @@ class DashboardController extends Controller
     //
     public function index(){
         //
-        $categories = Category::all();
+        $categories = Category::all()->count();
         $users = User::all()->count();
         $proveedores = Proveedor::all()->count();
         $productos = Producto::all()->count();
-        return view('dashboard.Categoria', compact('categories'));
+        return view('dashboard.Hola');
     }
 
 }

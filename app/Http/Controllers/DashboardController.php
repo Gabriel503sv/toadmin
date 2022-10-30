@@ -16,9 +16,9 @@ class DashboardController extends Controller
         //
         $categories = Category::all()->count();
         $users = User::all()->count();
-        $proveedores = Proveedor::all()->count();
+        //$proveedores = Proveedor::all()->count();
         $productos = Producto::all()->count();
-        return view('dashboard.Dashboard', compact('categories','users','proveedores','productos'));
+        return view('dashboard.Dashboard', compact('categories','users','productos'));
     }
 
 }

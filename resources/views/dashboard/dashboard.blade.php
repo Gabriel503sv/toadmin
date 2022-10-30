@@ -19,7 +19,7 @@
                         class="card-img-top  p-3 bg-white" width="100px">
                     <div class="card-body">
                         <h5 class="card-title center">Proveedores</h5>
-                        <p class="card-text"> <?php echo $proveedores; ?> </p>
+                        <p class="card-text"> <?php echo "hola"; ?> </p>
                     </div>
                 </div>
             </div>

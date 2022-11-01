@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\CategoriaController;
+use App\Http\Controllers\Api\PedidosController;
 use App\Http\Controllers\Api\ProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -29,4 +30,8 @@ Route::controller(ProductController::class)->group(function (){
 Route::controller(CategoriaController::class)->group(function (){
     Route::get('/categorias','index');
     Route::get('/categoria/{id}','show');
+});
+Route::controller(PedidosController::class)->group(function (){
+    Route::get('/pedidos','index');
+    Route::post('/pedido','store');
 });

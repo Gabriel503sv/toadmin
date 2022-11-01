@@ -82,6 +82,9 @@ class UsuarioController extends Controller
     public function edit(User $user)
     {
         //
+        return view('dashboard.Update.EditUser',[
+            'user' => $user
+        ]);
     }
 
     /**
@@ -94,6 +97,25 @@ class UsuarioController extends Controller
     public function update(Request $request, User $user)
     {
         //
+        $request->validate([
+
+            'email' => 'required|unique:users,email',
+            'password' => 'required|min:8',
+            'password_confirmation' => 'required|same:password',
+            'name'=> 'required',
+        ],[
+            'email.required' => 'El correo es requerido',
+            'email.unique' => 'El correo ya ha sido usado',
+            'password.required' => 'La contraseña es requerida',
+            'password.min' => 'La contraseña debe tener 8 caracteres',
+            'password_confirmation.required' => 'La confirmacion de la contraseña es requerida',
+            'password.same' => 'La contraseñas no coinciden',
+            'name.required' => 'el nombre es requerido'
+        ]);
+        
+        $data = $request->only('name','email',bcrypt('password'));
+        $user->update($data);
+        return redirect()->back()->with('success','Usuario actualizado Correctamente');
     }
 
     /**

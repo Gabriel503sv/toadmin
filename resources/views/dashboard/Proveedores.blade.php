@@ -119,8 +119,8 @@
                                         <td>
                                             <div class="row gx-3">
                                                 <div class="col">
-                                                    <button href="#" style="width: 100%"
-                                                        class="btn btn-success  mb-3">Editar</button>
+                                                    <a href="{{ route('proveedor.edit', $proveedor->id) }}" style="width: 100%"
+                                                        class="btn btn-success  mb-3">Editar</a>
                                                 </div>
                                                 <div class="col">
                                                     <form method="POST"

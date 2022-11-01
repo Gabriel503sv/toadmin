@@ -74,6 +74,10 @@ class ControllerCategory extends Controller
     public function edit(Category $category)
     {
         //
+        return view('dashboard.Update.EditCategoria',[
+            'category' => $category
+        ]);
+
     }
 
     /**
@@ -86,6 +90,9 @@ class ControllerCategory extends Controller
     public function update(Request $request, Category $category)
     {
         //
+        $data = $request->only('nombre_categoria');
+        $category->update($data);
+        return redirect()->back()->with('success','Usuario actualizado Correctamente');
     }
 
     /**

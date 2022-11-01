@@ -87,8 +87,8 @@
                                         <td > 
                                             <div class="row ">
                                                 <div class="col">
-                                                    <button  href="#" style="width: 100%"
-                                                        class="btn btn-success  mb-3">Editar</button>
+                                                    <a href="{{ route('category.edit' , $category->id)}}" style="width: 100%"
+                                                        class="btn btn-success  mb-3">Editar</a>
                                                 </div>
                                                 <div class="col">
                                                     <form method="POST"

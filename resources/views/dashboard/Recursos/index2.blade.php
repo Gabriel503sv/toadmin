@@ -29,28 +29,28 @@
                 <span class="tooltip">Buscar</span>
             </li>
             <li>
-                <a href="{{route('index')}}">
+                <a href="{{ route('index') }}">
                     <i class='bx bx-grid-alt'></i>
                     <span class="links_name">Dashboard</span>
                 </a>
                 <span class="tooltip">Dashboard</span>
             </li>
             <li>
-                <a href="{{route('user.index')}}">
+                <a href="{{ route('user.index') }}">
                     <i class='bx bx-user'></i>
                     <span class="links_name">Usuario</span>
                 </a>
                 <span class="tooltip">User</span>
             </li>
             <li>
-                <a href="{{route('proveedor.index')}}">
+                <a href="{{ route('proveedor.index') }}">
                     <i class='bx bx-group'></i>
                     <span class="links_name">Proveedor</span>
                 </a>
                 <span class="tooltip">Proveedor</span>
             </li>
             <li>
-                <a href="{{route('producto.index')}}">
+                <a href="{{ route('producto.index') }}">
                     <i class='bx bx-store'></i>
                     <span class="links_name">Productos</span>
                 </a>
@@ -58,27 +58,27 @@
             </li>
             <li>
                 <a href="#">
-                    <i class='bx bxl-shopify' ></i>
+                    <i class='bx bxl-shopify'></i>
                     <span class="links_name">Compras</span>
                 </a>
                 <span class="tooltip">Compras</span>
-            </li> 
+            </li>
             <li>
                 <a href="{{ route('pedido.index') }}">
-                    <i class='bx bxs-shopping-bags' ></i>
+                    <i class='bx bxs-shopping-bags'></i>
                     <span class="links_name">Ventas</span>
                 </a>
                 <span class="tooltip">Ventas</span>
             </li>
             <li>
-                <a href="{{route('category.index')}}">
+                <a href="{{ route('category.index') }}">
                     <i class='bx bx-category'></i>
                     <span class="links_name">Categoria</span>
                 </a>
                 <span class="tooltip">Categoria</span>
             </li>
-            
-           
+
+
             <li>
                 <a href="#">
                     <i class='bx bx-cog'></i>
@@ -94,23 +94,20 @@
                         <div class="job">Web administrador</div>
                     </div>
                 </div>
-                <form method="POST" action="{{route('signOut')}}">
+                <form method="POST" action="{{ route('signOut') }}">
                     @csrf
-                    <button type="submit" >
+                    <button type="submit">
                         <i class='bx bx-log-out' id="log_out"></i>
                     </button>
                 </form>
-                
-               
+
+
             </li>
         </ul>
     </div>
     <section class="home-section p-5">
         @yield('content')
     </section>
-
-    @yield('js')
-
     <script>
         let sidebar = document.querySelector(".sidebar");
         let closeBtn = document.querySelector("#btn");

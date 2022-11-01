@@ -75,6 +75,9 @@ class ControllerProveedor extends Controller
     public function edit(Proveedor $proveedor)
     {
         //
+        return view('dashboard.Update.EditProveedores',[
+            'proveedor' => $proveedor
+        ]);
     }
 
     /**
@@ -87,6 +90,9 @@ class ControllerProveedor extends Controller
     public function update(Request $request, Proveedor $proveedor)
     {
         //
+        $data = $request->only('nombre_proveedor','direccion_proveedor','telefono_proveedor','mail_proveedor');
+        $proveedor->update($data);
+        return redirect()->back()->with('success','Proveedor actualizado Correctamente');
     }
 
     /**

@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\ComprasController;
 use App\Http\Controllers\ControllerCategory;
+use App\Http\Controllers\ControllerPedido;
 use App\Http\Controllers\ControllerProveedor;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductoController;
@@ -50,7 +51,9 @@ Route::middleware('auth')->group(function(){
         Route::resource('compra',ComprasController::class);
         //Producto
         Route::resource('producto',ProductoController::class);
-        
+        //pedido
+        Route::resource('pedido',ControllerPedido::class);
+        //dashboard
         Route::get('dashboard',[DashboardController::class,'index'])->name('index');
         
     //});

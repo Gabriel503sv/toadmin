@@ -123,12 +123,12 @@
                                         <td>{{ $producto->descripcion_producto }}</td>
                                         <td>{{ $producto->precio_producto }}</td>
                                         <td>{{ $producto->stock_producto }}</td>
-                                        <td><img width="40px" src="storage/{{ $producto->imagen_producto}}" alt=""></td>
+                                        <td><img width="40px" src="https://s3.amazonaws.com/lalishop.bucket-s3/{{ $producto->imagen_producto}}" alt=""></td>
                                         <td>
                                             <div class="row gx-3">
                                                 <div class="col">
-                                                    <button  href="#" style="width: 100%"
-                                                        class="btn btn-success  mb-3">Editar</button>
+                                                    <a  href="{{ route('producto.edit', $producto->id) }}" style="width: 100%"
+                                                        class="btn btn-success  mb-3">Editar</a>
                                                 </div>
                                                 <div class="col">
                                                     <form method="POST"

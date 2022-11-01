@@ -42,8 +42,9 @@ class ProductoController extends Controller
     public function store(Request $request)
     {
         //
-        $file = $request->file('imagen_producto');
-        $rutaImagen = $file->store('imagenes_productos',['disk'=>'public']);
+        $folder = "imagenes";
+        $rutaImagen = Storage::disk('s3')->put($folder,$request->imagen_producto,'public');
+        
         
 
         Producto::create([
@@ -78,6 +79,11 @@ class ProductoController extends Controller
     public function edit(Producto $producto)
     {
         //
+        $categoria = Category::all();
+        return view('dashboard.Update.EditProducto',[
+            'producto' => $producto,
+            'categories' => $categoria
+        ]);
     }
 
     /**
@@ -90,6 +96,9 @@ class ProductoController extends Controller
     public function update(Request $request, Producto $producto)
     {
         //
+        $data = $request->only('categoria','nombre_producto','precio_producto','stock_producto','imagen_producto');
+        $producto->update($data);
+        return redirect()->back()->with('success','Producto actualizado Correctamente');
     }
 
     /**
@@ -101,10 +110,8 @@ class ProductoController extends Controller
     public function destroy(Producto $producto)
     {
         //
-        if($producto->imagen_producto){
-            Storage::disk('public')->delete($producto->imagen_producto);
-        }
         $producto->delete();
+        Storage::disk('s3')->delete($producto->imagen_producto);
         return redirect()->back()->with('success', 'Producto eliminado Correctamente');
     }
 }

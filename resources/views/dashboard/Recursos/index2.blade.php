@@ -108,6 +108,7 @@
     <section class="home-section p-5">
         @yield('content')
     </section>
+    
     <script>
         let sidebar = document.querySelector(".sidebar");
         let closeBtn = document.querySelector("#btn");

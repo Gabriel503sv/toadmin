@@ -60,7 +60,7 @@
             <div class="col-md-2">
                 <label for="exampleInputEmail1" class="form-label">Stock</label>
                 <input  readonly disabled type="number" class="form-control"
-                   name="stock" oninput="Calcular()" step="0.001" id="stock" value="{{ @old('name') ?? $producto->precio_producto }}" aria-describedby="emailHelp" required >
+                   name="stock" oninput="Calcular()" step="0.001" id="stock" value="{{ @old('name') ?? $producto->stock_producto }}" aria-describedby="emailHelp" required >
             </div>
             <div class="col-md-2">
                 <label for="exampleInputEmail1" class="form-label">comprar</label>
